@@ -1,7 +1,8 @@
+import ExpenseDetails from "./ExpenseDetails";
 import "./ExpenseItem.css";
 
 // function ExpenseItem() {
-//   const LocationOfExpenditure = ["Food","Petrol","Movies"]; 
+//   const LocationOfExpenditure = ["Food","Petrol","Movies"];
 
 //   return (
 //     <div>
@@ -24,22 +25,58 @@ import "./ExpenseItem.css";
 //   );
 // }
 
-
-
 ////*Passing Data*////
 
-function ExpenseItem(props){
+// function ExpenseItem(props){
 
-  return(
-    <div className='expense-item'>
-      <div>{props.date.toISOString()}</div>
-      <div className='expense-item_description'>
-        <h2>{props.title}</h2>
-        <div className='expense-item_price'>${props.amount}</div>
-        <div>{props.locationofExpenditure}</div>
-      </div>
+//   return(
+//     <div className='expense-item'>
+//       <div>{props.date.toISOString()}</div>
+//       <div className='expense-item_description'>
+//         <h2>{props.title}</h2>
+//         <div className='expense-item_price'>${props.amount}</div>
+//         <div>{props.locationofExpenditure}</div>
+//       </div>
+//     </div>
+//   )
+//   }
+
+// //*Task 10 First part*//
+
+// function ExpenseItem(props){
+//   const month = props.date.toLocaleString('en-US',{month:'long' });
+//   const day = props.date.toLocaleString('en-US',{day:'2-digit' });
+//   const year = props.date.getFullYear();
+
+//   return(
+//     <div className='expense-item'>
+//       <div>
+//         <div>{month}</div>
+//         <div>{year}</div>
+//         <div>{day}</div>
+//       </div>
+//       <div className='expense-item_description'>
+//         <h2>{props.title}</h2>
+//         <div className='expense-item_price'>${props.amount}</div>
+
+//       </div>
+//     </div>
+//   )
+// }
+
+// //*Task 10 Second part*//
+
+function ExpenseItem(props) {
+  return (
+    <div className="expense-item">
+      <ExpenseDate date={props.date} />
+      <ExpenseDetails
+        amount={props.amount}
+        location={props.location}
+        title={props.title}
+      />
     </div>
-  )
+  );
 }
 
 export default ExpenseItem;
